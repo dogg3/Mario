@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
  * Key handler to control an Walker.
  */
 public class Controller extends KeyAdapter {
-    private static final float JUMPING_SPEED = 8;
+    private static final float JUMPING_SPEED = 10;
     private static final float WALKING_SPEED = 8;
     
     private Walker body;

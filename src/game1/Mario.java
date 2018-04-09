@@ -34,15 +34,22 @@ public class Mario extends Walker {
      //The score incrementing
      public void incrementOrangeCount(){
          orangeCount++;
-         System.out.println(orangeCount);
+         
      }
+     
+     //get score
+     
+     public String getScore(){
+     
+     return "SCORE: " + orangeCount;
+     }
+     
+     
      
      //Life decrementing
      
      public void decrementLives(){
      life--;
-     System.out.println(life);
-     
      }
      
      

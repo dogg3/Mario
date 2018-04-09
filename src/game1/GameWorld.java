@@ -14,8 +14,7 @@ import org.jbox2d.common.Vec2;
  */
 public class GameWorld extends World {
     private Mario mario;
-    private Enemy enemy;
-   
+    private Door door;
     
     
     public GameWorld() {
@@ -24,7 +23,7 @@ public class GameWorld extends World {
         // make the ground
         Shape groundShape = new BoxShape(200, 0.5f);
         Body ground = new StaticBody(this, groundShape);
-        ground.setPosition(new Vec2(100, -11.5f));
+        ground.setPosition(new Vec2(190, -11.5f));
         // walls
         //Shape leftWallShape = new BoxShape(0.5f, 6, new Vec2(-11.5f, 5.5f));
         //Fixture leftWall = new SolidFixture(ground, leftWallShape);
@@ -35,7 +34,7 @@ public class GameWorld extends World {
     
         
         //Create plattforms
-        for(int i = 0; i<10; i++){
+        for(int i = 0; i<15; i++){
             double mathNumber = Math.random() * 10.0f -8.0f;
             Platform platform = new Platform(this);
             platform.setPosition(new Vec2(i*20, (float) mathNumber));
@@ -49,10 +48,13 @@ public class GameWorld extends World {
         mario.setPosition(new Vec2(-5, -7));
         
         //add enemy
-        
-        enemy = new Enemy(this);
-        enemy.setPosition(new Vec2(5, -7));
+        for(int i=0; i<20; i++){
+        Enemy enemy = new Enemy(this);
+        enemy.setPosition(new Vec2(i*20-10, -10));
         enemy.addCollisionListener(new Pickup(mario));
+        enemy.setLinearVelocity(new Vec2(-2,0));
+        }
+       
       
        //Make oranges
        
@@ -60,10 +62,15 @@ public class GameWorld extends World {
       Orange orange = new Orange(this);
       orange.setPosition(new Vec2(i*10-10, 10));
       orange.addCollisionListener(new Pickup(mario));
-      orange.setGravityScale(10);
+      
       
       
       }
+      
+      
+      //create door
+      door = new Door(this);
+      door.setPosition(new Vec2(5,-9));
         
       
     }

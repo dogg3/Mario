@@ -24,11 +24,11 @@ public class Game {
         // make the world
         world = new GameWorld();
 
-        view = new UserView(world, 500, 500);
+        view = new MyView(world, 500, 500, world.getPlayer());
 
         // make a view
         // uncomment this to draw a 1-metre grid over the view
-        view.setGridResolution(1);
+        //view.setGridResolution(1);
 
         // display the view in a frame
         final JFrame frame = new JFrame("game");
