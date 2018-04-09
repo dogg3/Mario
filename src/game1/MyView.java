@@ -26,6 +26,16 @@ public class MyView extends UserView {
         background = new ImageIcon("data/game-background.jpg").getImage();
         this.player = player;
     }
+    
+    public void setPlayer(Mario player){
+        this.player = player;
+    }
+    
+    
+    public void setBackgroundImage(ImageIcon background){
+        this.background = background.getImage();
+    
+    }
      
     @Override
     protected void paintBackground(Graphics2D g) {
@@ -38,9 +48,6 @@ public class MyView extends UserView {
     
     @Override
     protected void paintForeground(Graphics2D g){
-        
-        
-        
         g.drawString( player.getScore() ,30, 30);
     
     }

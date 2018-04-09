@@ -53,4 +53,8 @@ public class Controller extends KeyAdapter {
             body.stopWalking();
         }
     }
+    
+     public void setBody(Walker body) {
+        this.body = body;
+    }
 }

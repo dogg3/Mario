@@ -13,21 +13,21 @@ import city.cs.engine.CollisionListener;
  * @author douglaslandvik
  */
 public class DoorListener implements CollisionListener {
-    private Mario mario;
-    public DoorListener(Mario mario) {
-        this.mario = mario;
+    private Game game;
+    public DoorListener(Game game) {
+        this.game = game;
     }
-
     @Override
     public void collide(CollisionEvent e) {
-         if (e.getOtherBody() == mario) {
-            if (e.getReportingBody() instanceof Orange) {
-                mario.incrementOrangeCount();
-                e.getReportingBody().destroy();
-            } else if (e.getReportingBody() instanceof Enemy)
-                mario.decrementLives();
-            }
-            
+        Mario player = game.getPlayer();
+        if (e.getOtherBody() == player &&
+            game.isCurrentLevelCompleted()) {
+            System.out.println("Going to next level...");
+            game.goNextLevel();
+        }else{
+
+            System.out.println(player.getCount());
+        
         }
-    
+    }
 }

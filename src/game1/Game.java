@@ -1,11 +1,9 @@
 package game1;
 
 import city.cs.engine.*;
-import java.awt.Color;
-import java.util.List;
+import javax.swing.ImageIcon;
 
 import javax.swing.JFrame;
-import org.jbox2d.common.Vec2;
 
 /**
  * The computer game.
@@ -13,25 +11,33 @@ import org.jbox2d.common.Vec2;
 public class Game {
 
     /** The World in which the bodies move and interact. */
-    private GameWorld world;
+    private GameLevel world;
 
     /** A graphical display of the world (a specialised JPanel). */
-    private UserView view;
+    private MyView view;
+    
+    /** the current level **/
+    private int level;
+    
+    private Controller controller;
+    private Tracker tracker;
+    
 
     /** Initialise a new Game. */
     public Game() {
-
+        
+        //Initiliaze level
+        level = 1;
         // make the world
-        world = new GameWorld();
-
+        world = new Level1();
+        world.populate(this);
         view = new MyView(world, 500, 500, world.getPlayer());
 
         // make a view
         // uncomment this to draw a 1-metre grid over the view
         //view.setGridResolution(1);
-
-        // display the view in a frame
-        final JFrame frame = new JFrame("game");
+         // display the view in a frame
+        final JFrame frame = new JFrame("Multi-level game");
 
         // quit the application when the game window is closed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,23 +55,48 @@ public class Game {
          // give keyboard focus to the frame whenever the mouse enters the view
         view.addMouseListener(new GiveFocus(frame));
         
-        frame.addKeyListener(new Controller(world.getPlayer()));
-        world.addStepListener(new Tracker(view, world.getPlayer()));
+   
+        controller = new Controller(world.getPlayer());
+        frame.addKeyListener(controller);
         
-     
-        System.out.println(world.getPlayer());
-        // uncomment this to make a debugging view
+        
+        tracker = new Tracker(view, world.getPlayer());
+        world.addStepListener(tracker);
+        
+      
         // JFrame debugView = new DebugViewer(world, 500, 500);
 
         // start!
         world.start();
-    }
+        }
+        /** The player in the current level. */
+        public Mario getPlayer() {
+            return world.getPlayer();
+        }
+        /** Is the current level of the game finished? */
+        public boolean isCurrentLevelCompleted() {
+            return world.isCompleted();
+        }
+        public void goNextLevel() {
+            world.stop();
+            if (level == 2) {
+                System.exit(0);
+            } else {
+                level++;
+                world = new Level2();
+                world.populate(this);
+                view.setBackgroundImage(new ImageIcon("data/game-background2.jpg"));
+                controller.setBody(world.getPlayer());
+                tracker.setBody(world.getPlayer());
+                view.setPlayer(world.getPlayer());
+                view.setWorld(world);
+                world.addStepListener(tracker);
+                world.start();
+            }
+        }
 
     /** Run the game. */
     public static void main(String[] args) {
         new Game();
-        
-     
-        
-    }
+       }
 }

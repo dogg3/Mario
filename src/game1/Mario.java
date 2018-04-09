@@ -42,6 +42,7 @@ public class Mario extends Walker {
      public String getScore(){
      
      return "SCORE: " + orangeCount;
+     
      }
      
      
@@ -51,6 +52,10 @@ public class Mario extends Walker {
      public void decrementLives(){
      life--;
      }
+
+    public int getCount() {
+       return orangeCount;
+    }
      
      
      
