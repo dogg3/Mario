@@ -1,6 +1,7 @@
 # Super mario
-# A java application built upon a physics engine, developed by City University of London
-# Three-levels game
-#
-#
-# http://douglaslandvik.com 
+# Three-levels game.
+A java application built upon a physics engine.
+Physics engine: City University of London
+Author: Douglas Landvik
+Email: douglas.landvik@gmail.com
+Website: http://douglaslandvik.com 
