@@ -7,9 +7,15 @@ import city.cs.engine.*;
  */
 public class Pickup implements CollisionListener {
     private Mario mario;
-    
+    private Game game;
     public Pickup(Mario mario) {
         this.mario = mario;
+     
+    }
+    
+    public Pickup(Mario mario, Game game){
+    this.mario = mario;
+    this.game = game;
     }
 
    
@@ -22,6 +28,11 @@ public class Pickup implements CollisionListener {
                 e.getReportingBody().destroy();
             } else if (e.getReportingBody() instanceof Enemy)
                 mario.decrementLives();
+             e.getReportingBody().destroy();
+             if(mario.isAlive()){
+                 game.gameOver();
+             
+             }
             }
             
         }

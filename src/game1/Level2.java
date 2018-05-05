@@ -1,78 +1,93 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package game1;
 
-import city.cs.engine.Body;
-import city.cs.engine.BoxShape;
-import city.cs.engine.Shape;
-import city.cs.engine.StaticBody;
+import city.cs.engine.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 import org.jbox2d.common.Vec2;
+import city.cs.engine.BodyImage;
 
 /**
- *
- * @author douglaslandvik
+ * Level 1 of the game
  */
-public class Level2 extends GameLevel {
-
-    private static final int NUM_ORANGES = 5;
-
+public class Level2 extends GameLevel implements ActionListener {
+    
+    private static final int NUM_ORANGES = 10;
+       private static BodyImage groundImage; 
+       private Mario player;
+       private Timer timer;
+       private Game game;
+       
     /**
      * Populate the world.
      */
     @Override
     public void populate(Game game) {
         super.populate(game);
+        this.player = game.getPlayer();
+        this.game = game;
 
-         // make the ground
-        Shape groundShape = new BoxShape(10, 0.5f);
+        // make the ground
+        Shape groundShape = new BoxShape(100, 0.5f);
         Body ground = new StaticBody(this, groundShape);
-        ground.setPosition(new Vec2(5, -11.5f));
-        // walls
-        //Shape leftWallShape = new BoxShape(0.5f, 6, new Vec2(-11.5f, 5.5f));
-        //Fixture leftWall = new SolidFixture(ground, leftWallShape);
-       
-       
-         //Make oranges
-       
-      for(int i=0; i<100; i++){
-      Orange orange = new Orange(this);
-      orange.setPosition(new Vec2(i*10-10, 10));
-      orange.addCollisionListener(new Pickup(super.getPlayer()));
+        groundImage = new BodyImage("data/ground.png",1);
+        ground.addImage(groundImage);
+        ground.setPosition(new Vec2(90, -11.5f));
       
-      
-      
-      }
-        
-
-        //add enemy
-        for(int i=0; i<20; i++){
-        Enemy enemy = new Enemy(this);
-        enemy.setPosition(new Vec2(i*20-10, -10));
-        enemy.addCollisionListener(new Pickup(super.getPlayer()));
-        enemy.setLinearVelocity(new Vec2(-2,0));
+    
+        //Create plattforms
+        for(int i = 0; i<8; i++){
+            double mathNumber = Math.random() * 10.0f -8.0f;
+            Platform platform = new Platform(this);
+            platform.setPosition(new Vec2(i*20+20, (float) mathNumber));
+            
         }
        
-      
-      
-      
-      
-    }
+       
+        timer = new Timer(3000, this);
+        timer.start();
+        //add enemy
+  
 
+
+        //Make oranges
+        for(int i=0; i<20; i++){
+             Orange orange = new Orange(this);
+             orange.setPosition(new Vec2(i*10-5+20, 10));
+             
+            orange.addCollisionListener(new Pickup(super.getPlayer(), game));
+        }
+    }
+    
+ 
     @Override
     public Vec2 startPosition() {
-        return new Vec2(0, -5);
+        return new Vec2(2, -10);
     }
 
     @Override
     public Vec2 doorPosition() {
-        return new Vec2(-10.4f, -9.6f);
+        return new Vec2(180f, -9.2f);
     }
 
     @Override
     public boolean isCompleted() {
         return getPlayer().getCount() > NUM_ORANGES;
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+            System.out.println("Action perfromed");
+             
+             Vec2 position = player.getPosition();
+             if(position.x + 20< 180){
+              Enemy enemy = new Enemy(this);
+             enemy.addCollisionListener(new Pickup(super.getPlayer(), game));
+             enemy.setPosition(new Vec2(position.x+15,position.y));
+             
+             }
+    }
+
+
+   
 }

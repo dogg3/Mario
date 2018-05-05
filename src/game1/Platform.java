@@ -6,6 +6,7 @@
 package game1;
 
 import city.cs.engine.Body;
+import city.cs.engine.BodyImage;
 import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
 import city.cs.engine.StaticBody;
@@ -16,10 +17,12 @@ import city.cs.engine.World;
  * @author douglaslandvik
  */
 public class Platform extends StaticBody {
-   public static final Shape shape = new BoxShape(4, 0.5f);
+   private static final Shape shape = new BoxShape(4, 0.8f);
+   private static final BodyImage imagePlattform1 = new BodyImage("data/brick.png",2);
 
     public Platform(World w) {
         super(w,shape);
+        this.addImage(imagePlattform1);
     }
 
     

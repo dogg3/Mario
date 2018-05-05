@@ -40,15 +40,11 @@ public class MyView extends UserView {
     @Override
     protected void paintBackground(Graphics2D g) {
         g.drawImage(background, 0, 0, this);
-        g.setColor(white);
-        g.fillRoundRect(15,9,90,30,5,5);
+      
+        
         
     }
     
     
-    @Override
-    protected void paintForeground(Graphics2D g){
-        g.drawString( player.getScore() ,30, 30);
     
-    }
 }
