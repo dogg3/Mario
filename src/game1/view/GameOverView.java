@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game1;
+package game1.view;
 
+import game1.model.GameLevel;
 import city.cs.engine.UserView;
+import game1.Game;
 import static java.awt.Color.red;
 import static java.awt.Color.white;
 import java.awt.Dimension;
@@ -19,6 +21,7 @@ import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
 
@@ -30,6 +33,7 @@ public class GameOverView extends UserView {
     private Image background;
     private JPanel container;
     private JButton button;
+    private JOptionPane highScorePane;
     private Font font;
     private Box box;
     private JButton restart;
@@ -45,8 +49,11 @@ public class GameOverView extends UserView {
         background = new ImageIcon("data/gameOver.jpg").getImage();
         restart = new RestartBtn();
         restart.addActionListener(new TheHandler(this));
-    
         this.add(restart);
+        
+        highScorePane = new JOptionPane();
+        highScorePane.showInputDialog("High Score!\n put in your name");
+        
        
     }
     

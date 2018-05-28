@@ -1,6 +1,9 @@
-package game1;
+package game1.controller;
 
+import game1.model.Enemy;
+import game1.model.Mario;
 import city.cs.engine.*;
+import game1.Game;
 
 /**
  * Collision listener that allows the bird to collect things.
@@ -8,10 +11,7 @@ import city.cs.engine.*;
 public class Pickup implements CollisionListener {
     private Mario mario;
     private Game game;
-    public Pickup(Mario mario) {
-        this.mario = mario;
-     
-    }
+ 
     
     public Pickup(Mario mario, Game game){
     this.mario = mario;

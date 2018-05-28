@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game1;
+package game1.model;
 
+import game1.model.Door;
+import game1.model.Mario;
+import game1.model.Model;
 import city.cs.engine.World;
+import game1.Game;
 import javax.swing.JPanel;
 import org.jbox2d.common.Vec2;
 

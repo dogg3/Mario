@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game1;
+package game1.view;
 
+import game1.model.Mario;
 import city.cs.engine.UserView;
 import city.cs.engine.World;
 import static java.awt.Color.blue;

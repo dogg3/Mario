@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/Level1.java</file>
+            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/model/FlowerMonster.java</file>
+            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/model/Level2.java</file>
             <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/PolygonEditor.java</file>
-            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/QuestionBrick.java</file>
-            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/Door.java</file>
+            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/model/Door.java</file>
+            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/Game.java</file>
+            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/model/GameLevel.java</file>
+            <file>file:/Users/douglaslandvik/Desktop/JavaProjects/Game1/src/game1/model/Model.java</file>
         </group>
     </open-files>
 </project-private>

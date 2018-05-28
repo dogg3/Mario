@@ -1,19 +1,25 @@
-package game1;
+package game1.model;
 
+import game1.model.GameLevel;
+import game1.model.Mario;
 import city.cs.engine.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import org.jbox2d.common.Vec2;
 import city.cs.engine.BodyImage;
+import game1.Game;
+import game1.controller.Orange;
+import game1.controller.Pickup;
 
 /**
  * Level 1 of the game
  */
 public class Level2 extends GameLevel implements ActionListener {
     
-    private static final int NUM_ORANGES = 10;
+    private static final int NUM_ORANGES = 5;
        private static BodyImage groundImage; 
+       private StaticBody flowerMonster;
        private Mario player;
        private Timer timer;
        private Game game;
@@ -24,9 +30,13 @@ public class Level2 extends GameLevel implements ActionListener {
     @Override
     public void populate(Game game) {
         super.populate(game);
+       
         this.player = game.getPlayer();
         this.game = game;
 
+           //make a flower monster
+         flowerMonster = new FlowerMonster(this);
+         flowerMonster.setPosition(new Vec2(5,-8.6f));
         // make the ground
         Shape groundShape = new BoxShape(100, 0.5f);
         Body ground = new StaticBody(this, groundShape);

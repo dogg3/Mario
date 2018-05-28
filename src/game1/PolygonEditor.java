@@ -242,9 +242,9 @@ public class PolygonEditor extends JPanel
      * @param args command line arguments.
      */
     public static void main(String[] args) {
-        String fileName = "data/questionBrick.png";
+        String fileName = "data/plant.png";
         int firstCoordIndex = 0;
-        float boxHeight = 5.0f;
+        float boxHeight = 6.0f;
         if (args.length > 0) {
             try {
                 String[] test = args[0].split("[, ]+");

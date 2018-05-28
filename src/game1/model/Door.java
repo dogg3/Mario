@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game1;
+package game1.model;
 
+import game1.model.Mario;
 import city.cs.engine.Body;
 import city.cs.engine.BodyImage;
 import city.cs.engine.CollisionEvent;
@@ -16,6 +17,7 @@ import city.cs.engine.SolidFixture;
 import city.cs.engine.SoundClip;
 import city.cs.engine.StaticBody;
 import city.cs.engine.World;
+import game1.Game;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;

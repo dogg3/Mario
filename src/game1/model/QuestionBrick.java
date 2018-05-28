@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game1;
+package game1.model;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;

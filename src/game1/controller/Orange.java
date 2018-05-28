@@ -1,4 +1,4 @@
-package game1;
+package game1.controller;
 
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
@@ -40,7 +40,6 @@ public void destroy()
  static {
         try {
            orangeSound = new SoundClip("data/sounds/collectPoint.wav");
-           System.out.println("Loading orange sound");
          } catch (UnsupportedAudioFileException|IOException|LineUnavailableException e) {
            System.out.println(e);
          } 

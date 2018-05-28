@@ -1,11 +1,16 @@
-package game1;
+package game1.model;
 
+import game1.model.GameLevel;
+import game1.model.Mario;
 import city.cs.engine.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import org.jbox2d.common.Vec2;
 import city.cs.engine.BodyImage;
+import game1.Game;
+import game1.controller.Orange;
+import game1.controller.Pickup;
 
 /**
  * Level 1 of the game

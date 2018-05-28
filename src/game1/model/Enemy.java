@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game1;
+package game1.model;
 
 import city.cs.engine.BodyImage;
 import city.cs.engine.CollisionEvent;
@@ -16,6 +16,7 @@ import city.cs.engine.Shape;
 import city.cs.engine.SoundClip;
 import city.cs.engine.Walker;
 import city.cs.engine.World;
+import game1.controller.Orange;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -71,7 +72,6 @@ public class Enemy extends Walker implements CollisionListener, ActionListener {
     @Override
     public void collide(CollisionEvent ce) {
         if (ce.getOtherBody() instanceof Orange ){
-            
             this.jump(10);
         }
         if(ce.getOtherBody() instanceof Platform){
@@ -86,12 +86,7 @@ public class Enemy extends Walker implements CollisionListener, ActionListener {
              case 1: this.rotateDegrees(-10);
              break;
              case 0: this.rotateDegrees(10);
-              
-         }
+               }
          counter = (counter == 1) ? 0 : 1;
-    }
-
-
-    
-    
+    } 
 }

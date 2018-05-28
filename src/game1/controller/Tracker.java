@@ -1,4 +1,4 @@
-package game1;
+package game1.controller;
 
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;

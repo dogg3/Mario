@@ -7,6 +7,16 @@
 
 package game1;
 
+import game1.controller.GiveFocus;
+import game1.view.MyView;
+import game1.view.GameOverView;
+import game1.controller.Controller;
+import game1.controller.Tracker;
+import game1.model.Level2;
+import game1.model.Level1;
+import game1.model.GameLevel;
+import game1.model.Mario;
+import game1.model.Model;
 import city.cs.engine.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -65,7 +75,7 @@ public class Game extends Model {
         //Initiliaze level
         level = 1;
         // make the world
-        world = new Level1();
+        world = new Level2();
         world.populate(this);
         view = new MyView(world, 500, 500, world.getPlayer());
         gameOverView = new GameOverView(world, 500,500, this);
@@ -82,7 +92,7 @@ public class Game extends Model {
         //Add the menu 
         frame.add(world.addMenu(), BorderLayout.NORTH);
         // display the world in the window
-        frame.add(view);
+        frame.add(gameOverView);
         // don't let the game window be resized
         frame.setResizable(false);
         // size the game window to fit the world view

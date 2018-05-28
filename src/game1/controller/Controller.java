@@ -1,4 +1,4 @@
-package game1;
+package game1.controller;
 
 import city.cs.engine.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package game1;
+package game1.model;
 
 import city.cs.engine.World;
 import java.util.List;
